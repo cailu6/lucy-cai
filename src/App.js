@@ -1,31 +1,34 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import TabControl from './component/tab/Tab'
+import TabControl from './component/tab/Tab';
+import Accordion from './component/accordion/Accordion';
 
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <h1 className="App-title">Welcome to React</h1>
-//         </header>
-//         <p className="App-intro">
-//           To get started, edit <code>src/App.js</code> and save to reload.
-//         </p>
-//       </div>
-//     );
-//   }
-// }
-
+var arr=[
+  {
+            title : "title",
+            content : "content"
+        },
+        {
+            title : "title1",
+            content : "content1"
+        },
+        {
+            title : "title2",
+            content : "content2"
+        },
+        {
+            title : "title3",
+            content : "content3"
+        }
+];
 class App extends Component {
  render(){
   return (
     <div className="container">
        <TabControl>
           <div name="first">
-            first new
+            <Accordion data={arr} />
           </div>
           <div name="second">
             second new

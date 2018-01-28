@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './tab.css';
 
 class TabControl extends Component {
   constructor(props){
@@ -8,7 +7,6 @@ class TabControl extends Component {
     this.checkTabIdx=this.checkTabIdx.bind(this);
     this.checkTtemIdx=this.checkItemIdx.bind(this);
   }
-
   checkTabIdx(index){
     return index===this.state.currentIdx ? 'tab_tittle active' : 'tab_tittle';
   }
@@ -18,7 +16,7 @@ class TabControl extends Component {
   }
   render() {
     return (
-      <div className="tab_container">
+      <div>
         <div className="tab_wrap">
             {React.Children.map(this.props.children,(element,index) => {
               return (
@@ -43,6 +41,6 @@ class TabControl extends Component {
       </div>
     );
   }
-}
+};
 
 export default TabControl;
