@@ -1,47 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import TabControl from './component/tab/Tab';
-import Accordion from './component/accordion/Accordion';
-import Button from './component/button/Button';
+import {Link} from 'react-router'
 
-var arr=[
-  {
-            title : "title",
-            content : "content"
-        },
-        {
-            title : "title1",
-            content : "content1"
-        },
-        {
-            title : "title2",
-            content : "content2"
-        },
-        {
-            title : "title3",
-            content : "content3"
-        }
-];
 class App extends Component {
- render(){
-  return (
-    <div className="container">
-       <TabControl>
-          <div name="first">
-            <Accordion data={arr} />
-          </div>
-          <div name="second">
-            <Button size="big" type="primary"/>
-          </div>
-          <div name="third">
-            third new
-          </div>
-       </TabControl>
-    </div>
-  )
-
- }
+  render() {
+    return (
+      <div>
+        <h1>lucy-cai UI 组件</h1>
+        <ul>
+          <li><Link to="/buttonDemo">Button</Link></li>
+          <li><Link to="/tabDemo">Tab</Link></li>
+          <li><Link to="/accordionDemo">Accordion</Link></li>
+          <li><Link to="/todolistDemo">Todolist</Link></li>
+        </ul>
+        <div>{this.props.children}</div>
+      </div>
+    );
+  }
 }
 
 export default App;

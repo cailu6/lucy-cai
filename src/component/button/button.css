@@ -5,6 +5,30 @@
 
 .primary{
   color: #fff;
-  background-color: #40a9ff;
-  border-color: #40a9ff;
+  background-color: #337ab7;
+  border-color: #337ab7;
+}
+
+.success{
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+}
+
+.info{
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #5bc0de;
+}
+
+.warning{
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #f0ad4e;
+}
+
+.danger{
+  color: #fff;
+  background-color: #c9302c;
+  border-color: #c9302c;
 }

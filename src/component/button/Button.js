@@ -23,7 +23,7 @@ class Button extends Component{
     const ComponentProp = false ? 'a' : 'button';
 
 		return (
-			<ComponentProp type="button" className={this.init()}>Button</ComponentProp>
+			<ComponentProp type="button" className={this.init()}>{this.props.value}</ComponentProp>
 		);
 	}
 };
