@@ -1,0 +1,10 @@
+.big{
+  height: 30px;
+  font-size: 16px;
+}
+
+.primary{
+  color: #fff;
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}

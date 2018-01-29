@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import TabControl from './component/tab/Tab';
 import Accordion from './component/accordion/Accordion';
+import Button from './component/button/Button';
 
 var arr=[
   {
@@ -31,7 +32,7 @@ class App extends Component {
             <Accordion data={arr} />
           </div>
           <div name="second">
-            second new
+            <Button size="big" type="primary"/>
           </div>
           <div name="third">
             third new
