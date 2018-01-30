@@ -1,4 +1,4 @@
-.accordion{border-left: 1px solid #dedede;width: 300px;border-right: 1px solid #dedede;}
+.accordion{border-left: 1px solid #dedede;width: 300px;border: 1px solid #dedede;}
 .accordion .accordion_item{color:#666;}
 .accordion .title{background:#fafafd; height: 30px;line-height:30px;cursor:pointer;color:#666;border-bottom:1px solid #dedede;padding:0 10px;}
 .accordion .content{transition:height .5s;height:0;overflow:auto;padding:0 10px;overflow: hidden;}
