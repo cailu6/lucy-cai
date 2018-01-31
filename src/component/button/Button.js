@@ -6,6 +6,7 @@ class Button extends Component{
   constructor(props){
 		super(props);
     this.init = this.init.bind(this);
+    this.handlerClick = this.handlerClick.bind(this);
 	}
 
   init(){
@@ -18,12 +19,19 @@ class Button extends Component{
     return classStr
   }
 
+  handlerClick(e: React.MouseEvent<HTMLButtonElement>){
+    const onClick = this.props.onClick;
+    if(onClick){
+      onClick(e);
+    }
+  }
+
 	render(){
 
     const ComponentProp = false ? 'a' : 'button';
 
 		return (
-			<ComponentProp type="button" className={this.init()}>{this.props.value}</ComponentProp>
+			<ComponentProp type="button" onClick={this.handlerClick} className={this.init()}>{this.props.value}</ComponentProp>
 		);
 	}
 };

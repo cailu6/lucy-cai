@@ -8,7 +8,6 @@ class TodoItem extends Component{
         this.handleDeleteClick=this.handleDeleteClick.bind(this);
 	}
 	handleDeleteClick(event){
-		console.log(this.props.itemData.id);
 		this.props.deleteItem(this.props.itemData.id);
 	}
   
@@ -16,7 +15,7 @@ class TodoItem extends Component{
 		return (
 			<li>
 				<span>{this.props.itemData.id}</span>.<span>{this.props.itemData.content}</span>
-				<input type="button" value="delete" onClick={this.handleDeleteClick} />
+				<Button size="big" type="danger" value="delete" onClick={this.handleDeleteClick} />
 			</li>
 		);
 	}

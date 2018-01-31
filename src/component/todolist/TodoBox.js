@@ -35,8 +35,13 @@ class TodoBox extends Component{
 				delete tempArr[index];
 			}
 		})
-		console.log(tempArr);
-		this.setState({arr:tempArr});
+		var finalArr = [];
+		tempArr.map((value,index)=>{
+			if(value != undefined){
+				finalArr.push(value);
+			}
+		})
+		this.setState({arr:finalArr});
 	}
 	getData(val){
 		var temp = [];

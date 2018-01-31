@@ -22,8 +22,7 @@ class TodoListAdd extends Component{
 		return (
 			<li>
 				<input type="text" value={this.state.value} onChange={this.handleChange} />
-			
-				<input type="button" value="add" onClick={this.handleAddClick} />
+				<Button size="big" type="success" value="add" onClick={this.handleAddClick} />
 			</li>
 		);
 	}
