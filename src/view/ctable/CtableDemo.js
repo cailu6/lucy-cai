@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 
-import Table from '../../component/table/Table';
+import Ctable from '../../component/ctable/Ctable';
 
 
 class TableDemo extends Component {
@@ -30,7 +30,7 @@ class TableDemo extends Component {
     }
     render(){
 		return ( 
-		<Table />
+		<Ctable />
 		)
     }
 }

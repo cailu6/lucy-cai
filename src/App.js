@@ -11,7 +11,7 @@ class App extends Component {
           <li><Link to="/tabDemo">Tab</Link></li>
           <li><Link to="/accordionDemo">Accordion</Link></li>
           <li><Link to="/todolistDemo">Todolist</Link></li>
-          <li><Link to="/tableDemo">Table</Link></li>
+          <li><Link to="/ctableDemo">Ctable</Link></li>
         </ul>
         <div>{this.props.children}</div>
       </div>
