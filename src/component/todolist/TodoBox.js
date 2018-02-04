@@ -10,26 +10,9 @@ class TodoBox extends Component{
 		super(props);
         this.getData=this.getData.bind(this);
         this.deleteValue= this.deleteValue.bind(this);
-        this.state = {
-        	arr : [
-				{
-					id: 1,
-					content: 'javaScript'
-				},
-				{
-					id: 2,
-					content: 'java'
-				},
-				{
-					id: 3,
-					content: 'c++'
-				}
-			]
-        }
 	}
 	deleteValue(val){
-		//console.log(val,"9999");
-		var tempArr = this.state.arr;
+		var tempArr = this.props.data.arr;
 		tempArr.map((value,index)=>{
 			if(value.id == val){
 				delete tempArr[index];
@@ -41,12 +24,12 @@ class TodoBox extends Component{
 				finalArr.push(value);
 			}
 		})
-		this.setState({arr:finalArr});
+		this.props.updateData(finalArr);
 	}
 	getData(val){
 		var temp = [];
-		var tempArr = this.state.arr;
-		this.state.arr.map((value,index)=>{
+		var tempArr = this.props.data.arr;
+		this.props.data.arr.map((value,index)=>{
 			temp.push(value.id);
 		});
 		var maxValue = temp.length == 0? 1: Math.max(...temp) +1;
@@ -54,12 +37,12 @@ class TodoBox extends Component{
 		obj.id = maxValue;
 		obj.content = val;
 		tempArr.push(obj);
-		this.setState({arr:tempArr});
+		this.props.updateData(tempArr);
 	}
 	render(){
 		return (
 			<div>
-				<TodoList deleteValue={this.deleteValue} data={this.state.arr}/>
+				<TodoList deleteValue={this.deleteValue} data={this.props.data.arr}/>
 				<TodoListAdd getData={this.getData} />
 			</div>
 		);
