@@ -12,7 +12,8 @@ class Ctable extends Component{
     this.state = {
       headData: this.props.data.headData,
       bodyData: this.props.data.bodyData,
-      bodyFunc: this.props.data.bodyFunc
+      bodyFunc: this.props.data.bodyFunc,
+      toolFunc: this.props.data.toolFunc,
     }
 	}
 
@@ -23,7 +24,7 @@ class Ctable extends Component{
       headArray.push(<th key={index} field={value.field}>{value.title}</th>)
     })
     if(this.state.bodyFunc.length > 0){
-      headArray.push(<th>操作</th>);
+      headArray.push(<th key={"func"}>操作</th>);
     }
     return headArray;
   }
@@ -36,20 +37,21 @@ class Ctable extends Component{
         bodyArray.push(<td key={variable} field={variable}>{value[variable]}</td>)
       }
     }
+    //加载后面的按钮功能
     if (this.state.bodyFunc.length > 0) {
       var butArray = [];
       this.state.bodyFunc.map((value,index)=>{
-        butArray.push(<Button size="big" type="danger" value={value.funcName} />);
+        butArray.push(<Button size="big" type="danger" key={index} value={value.funcName} onClick={value.handle} />);
       })
-      bodyArray.push(<td>{butArray}</td>)
+      bodyArray.push(<td key={"handle"}>{butArray}</td>)
     }
     return bodyArray;
   }
 
   handleAddClick() {
-    var tempArray = this.state.bodyData;
-    tempArray.push({"id":"5","name":"陈六","age":"18","gender":"男","address":"深圳市龙华区"});
-    this.setState({bodyData: tempArray});
+    this.state.toolFunc.map((value,index)=>{
+      value.handle();
+    })
   }
 
 	render(){
