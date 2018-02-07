@@ -8,30 +8,45 @@ class TableDemo extends Component {
 	constructor(props){
     super(props);
 	    this.state={
-	       data:[
-		       {
-		            title : "title0",
-		            content : "content0"
+				data:{
+					headData:[
+						{
+							title: "编号",
+							field: "id"
+						},
+		        {
+		            title : "姓名",
+		            field : "name"
 		        },
 		        {
-		            title : "title1",
-		            content : "content1"
+		            title : "年龄",
+		            field : "age"
 		        },
 		        {
-		            title : "title2",
-		            content : "content2"
+		            title : "性别",
+		            field : "gender"
 		        },
 		        {
-		            title : "title3",
-		            content : "content3"
+		            title : "地址",
+		            field : "address"
 		        }
-	     	]
+		     	],
+					bodyData:[
+						{"id":"1","name":"张三","age":"18","gender":"男","address":"深圳市南山区"},
+						{"id":"2","name":"李四","age":"17","gender":"女","address":"深圳市宝安区"},
+						{"id":"3","name":"王五","age":"20","gender":"男","address":"深圳市罗湖区"},
+					],
+					bodyFunc:[
+						{"funcName":'delete',"handle":"delete"},
+						{"funcName":'update',"handle":"update"},
+					]
+				}
 	    }
     }
     render(){
-		return ( 
-		<Ctable />
-		)
+			return (
+				<Ctable data={this.state.data}/>
+			)
     }
 }
 
