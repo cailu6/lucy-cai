@@ -51,22 +51,23 @@ class TableDemo extends Component {
 		}
 	}
 
-	deleteFunc(event) {
-		console.log();
-		var tdMap = ReactDOM.findDOMNode(event.target).parentNode.parentNode.getElementsByTagName("td");
-		console.log(tdMap, typeof(tdMap),tdMap.length);
-		var obj = {}
-		// tdMap.map((value,index)=>{
-		// 	var field = value.getAttribute("field");
-		// 	var val = value.innerHTML
-		// 	obj[field]=val;
-		// })
+	deleteFunc(obj,event) {
 		console.log(obj);
+		let that = this;
+		var temp = that.state.data.bodyData;
+		temp.map((value,index)=>{
+			if (value.id == obj.id) {
+				delete temp[index];
+			}
+		})
+		console.log(this.state);
+		var tempValue = that.state.data;
+		tempValue.bodyData = temp;
+    this.setState({data: tempValue});
 	}
 
-	updateFunc() {
-		console.log("update...");
-
+	updateFunc(obj,event) {
+		console.log("update...",obj);
 	}
 
 	addFunc(){

@@ -10,16 +10,17 @@ class Ctable extends Component{
     this.headInit = this.headInit.bind(this);
     this.bodyInit = this.bodyInit.bind(this);
     this.handleAddClick = this.handleAddClick.bind(this);
+    this.bodyFuncHandle = this.bodyFuncHandle.bind(this);
     this.state = {
-      headData: this.props.data.headData,
-      bodyData: this.props.data.bodyData,
-      bodyFunc: this.props.data.bodyFunc,
-      toolFunc: this.props.data.toolFunc,
+      headData: this.props.data.headData,//头数据
+      bodyData: this.props.data.bodyData,//行数据
+      bodyFunc: this.props.data.bodyFunc,//行内按钮
+      toolFunc: this.props.data.toolFunc,//表上按钮
     }
 	}
 
+  //初始化表格头
   headInit(){
-    console.log(this.state);
     var headArray = [];
     this.state.headData.map((value,index)=>{
       headArray.push(<th key={index} field={value.field}>{value.title}</th>)
@@ -30,8 +31,8 @@ class Ctable extends Component{
     return headArray;
   }
 
+  //初始化表格体
   bodyInit(value){
-    console.log(value);
     var bodyArray = [];
     for (var variable in value) {
       if (value.hasOwnProperty(variable)) {
@@ -42,11 +43,37 @@ class Ctable extends Component{
     if (this.state.bodyFunc.length > 0) {
       var butArray = [];
       this.state.bodyFunc.map((value,index)=>{
-        butArray.push(<Button type="big danger" key={index} value={value.funcName} onClick={value.handle} />);
+        butArray.push(<Button type="big danger" key={index} index={index} value={value.funcName} onClick={this.bodyFuncHandle} />);
       })
       bodyArray.push(<td key={"handle"}>{butArray}</td>)
     }
     return bodyArray;
+  }
+
+
+  bodyFuncHandle(event) {
+    var tdMap = ReactDOM.findDOMNode(event.target).parentNode.parentNode.getElementsByTagName("td");
+		var obj = {}
+		for (var i = 0; i < tdMap.length; i++) {
+			var field = tdMap[i].getAttribute("field");
+			if (field != undefined) {
+				var val = tdMap[i].innerHTML;
+				obj[field] = val;
+			}
+		}
+
+    var func ;
+    var funcIndex = ReactDOM.findDOMNode(event.target).getAttribute("index");
+    this.state.bodyFunc.map((value,index)=>{
+      if (index == funcIndex) {
+        func = value.handle;
+      }
+    })
+
+    if (func) {
+      func(obj,event);
+    }
+		//console.log(obj);
   }
 
   handleAddClick() {

@@ -30,7 +30,7 @@ class Button extends Component{
     const ComponentProp = false ? 'a' : 'button';
 
 		return (
-			<ComponentProp type="button" onClick={this.handlerClick} className={this.init()}>{this.props.value}</ComponentProp>
+			<ComponentProp type="button" onClick={this.handlerClick} index={this.props.index} className={this.init()}>{this.props.value}</ComponentProp>
 		);
 	}
 };
