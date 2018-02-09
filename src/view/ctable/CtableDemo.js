@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
 import Ctable from '../../component/ctable/Ctable';
 
@@ -50,9 +51,17 @@ class TableDemo extends Component {
 		}
 	}
 
-	deleteFunc() {
-		console.log("delete...");
-
+	deleteFunc(event) {
+		console.log();
+		var tdMap = ReactDOM.findDOMNode(event.target).parentNode.parentNode.getElementsByTagName("td");
+		console.log(tdMap, typeof(tdMap),tdMap.length);
+		var obj = {}
+		// tdMap.map((value,index)=>{
+		// 	var field = value.getAttribute("field");
+		// 	var val = value.innerHTML
+		// 	obj[field]=val;
+		// })
+		console.log(obj);
 	}
 
 	updateFunc() {

@@ -11,10 +11,9 @@ class Button extends Component{
 
   init(){
     let classStr = "";
-    for (var variable in this.props) {
-      if (this.props.hasOwnProperty(variable)) {
-        classStr += this.props[variable] + " ";
-      }
+    classStr = this.props.type;
+    if (this.props.className != "" && this.props.className!=undefined ){
+      classStr += " " + this.props.className;
     }
     return classStr
   }

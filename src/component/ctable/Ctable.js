@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import './ctable.css'
 import Button from '../button/Button'
 
@@ -41,7 +42,7 @@ class Ctable extends Component{
     if (this.state.bodyFunc.length > 0) {
       var butArray = [];
       this.state.bodyFunc.map((value,index)=>{
-        butArray.push(<Button size="big" type="danger" key={index} value={value.funcName} onClick={value.handle} />);
+        butArray.push(<Button type="big danger" key={index} value={value.funcName} onClick={value.handle} />);
       })
       bodyArray.push(<td key={"handle"}>{butArray}</td>)
     }
@@ -60,7 +61,7 @@ class Ctable extends Component{
         {/*查询条件*/}
         {/*功能按钮*/}
         <div>
-          <Button size="big" type="primary" value="add" onClick={this.handleAddClick} />
+          <Button type="big primary" value="add" onClick={this.handleAddClick} />
         </div>
         {/*表格*/}
         <table>

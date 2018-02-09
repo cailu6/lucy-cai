@@ -9,13 +9,13 @@ class ButtonDemo extends Component {
  render(){
   return (
     <div className="container">
-       
-        <Button size="big" type="primary" value="btn-primary" className={"gap"}/>
-        <Button size="big" type="success" value="btn-primary" className={"gap"}/>
-        <Button size="big" type="info" value="btn-info" className={"gap"}/>
-        <Button size="big" type="warning" value="btn-warning" className={"gap"}/>
-        <Button size="big" type="danger" value="btn-danger" className={"gap"}/>
-      
+
+        <Button type="big primary" value="btn-primary" className={"gap"}/>
+        <Button type="big success" value="btn-primary" className={"gap"}/>
+        <Button type="big info" value="btn-info" className={"gap"}/>
+        <Button type="big warning" value="btn-warning" className={"gap"}/>
+        <Button type="big danger" value="btn-danger" className={"gap"}/>
+
     </div>
   )
  }

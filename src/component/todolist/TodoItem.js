@@ -10,12 +10,12 @@ class TodoItem extends Component{
 	handleDeleteClick(event){
 		this.props.deleteItem(this.props.itemData.id);
 	}
-  
+
 	render(){
 		return (
 			<li>
 				<span>{this.props.itemData.id}</span>.<span>{this.props.itemData.content}</span>
-				<Button size="big" type="danger" value="delete" onClick={this.handleDeleteClick} />
+				<Button type="big danger" value="delete" onClick={this.handleDeleteClick} />
 			</li>
 		);
 	}
